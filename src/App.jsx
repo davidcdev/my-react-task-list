@@ -5,7 +5,7 @@ import { TaskList } from './components/TaskList'
 
 let pendingTasks = [
   { name:"Completar proyecto integrador de React" },
-  { name:"Estudiar el contenido antes de la clase" }
+  { name:"Estudiar el contenido antes de la clase" },
 ]
 
 let completedTasks = [
