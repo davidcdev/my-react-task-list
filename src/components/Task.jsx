@@ -1,4 +1,4 @@
-export function Task ({task, onCompleteClick, onDeleteClick, setComplete }) {
+export function Task ({task, onCompleteClick, onDeleteClick }) {
     const handleCompleteClick = () => {
         onCompleteClick(task, task.id)
     }
