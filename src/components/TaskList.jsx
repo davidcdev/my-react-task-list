@@ -53,7 +53,7 @@ export function TaskList () {
     const [complete, setComplete] = useState(false)
 
     const handleCompleteClick = (newCompleted, id) => {
-        setComplete(newCompleted.isCompleted = true)
+        setComplete(newCompleted.isCompleted = !complete)
         
         let newTask = [...task];
 
