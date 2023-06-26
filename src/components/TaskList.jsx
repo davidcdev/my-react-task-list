@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import App from "../App";
 import { Task } from "./Task"
+import { notifyCompleted, notifyDeleted, notifySaved } from "../logic/notifications";
+import { Toaster } from "react-hot-toast";
 
 
 export function TaskList () {
@@ -21,6 +22,8 @@ export function TaskList () {
         setTask(newTask);
 
         localStorage.setItem("task", JSON.stringify(newTask));
+
+        notifySaved();
     }
 
     useEffect(() => {
@@ -53,15 +56,14 @@ export function TaskList () {
     const [complete, setComplete] = useState(false)
 
     const handleCompleteClick = (newCompleted, id) => {
-        setComplete(newCompleted.isCompleted = !complete)
-        
+        if (newCompleted.isCompleted === false) {
+        setComplete(newCompleted.isCompleted = true)
         let newTask = [...task];
-
         newTask = [...newTask.filter(e => e.id != id), newCompleted];
-
         setTask(newTask);
-
-        localStorage.setItem("task", JSON.stringify(newTask));      
+        localStorage.setItem("task", JSON.stringify(newTask));   
+        notifyCompleted();
+        }
     }
     /* console.log(task) */
     
@@ -70,6 +72,7 @@ export function TaskList () {
         const list = newTask.filter(e => e.id != id)
         setTask(list);
         localStorage.setItem("task", JSON.stringify(list));
+        notifyDeleted();
     }
 
     return (
@@ -104,6 +107,7 @@ export function TaskList () {
                     />
                 ))}
             </div>
+            <Toaster />
         </section>
     )
 }

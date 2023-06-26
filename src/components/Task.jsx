@@ -1,3 +1,5 @@
+import { Delete } from "@mui/icons-material"
+
 export function Task ({task, onCompleteClick, onDeleteClick }) {
     const handleCompleteClick = () => {
         onCompleteClick(task, task.id)
@@ -32,7 +34,7 @@ export function Task ({task, onCompleteClick, onDeleteClick }) {
                 onClick={ handleDeleteClick }
             >
                 <span>
-                    x
+                    <Delete fontSize="small"/>
                 </span>
             </button>
         </article>
