@@ -27,7 +27,6 @@ export function TaskList ({
                 <button 
                     type="submit" 
                     className="add-button" 
-                    onChange={(e) => { onInputValueChange(e.target.value) }}
                     onClick={ handleAddClick }
                 >
                     +
