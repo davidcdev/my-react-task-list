@@ -20,7 +20,20 @@ header {
 
 .title {
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin: 40px auto 20px auto;
+}
+
+.form-container {
+  width: 70%;
+  height: 30%;
+  display: flex;
+}
+
+.add-new-task {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
 }
 
 .new-task{
@@ -31,26 +44,18 @@ header {
   padding: 4px 16px;
 }
 
-.add-new-task {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-/* form.add-new-task {
+.title-and-error {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
 }
 
 span.error {
-  display: block;
+  text-align: left;
   color: red;
-  font-style: italic;
-  font-size: 0.8rem;
-  margin-top: 0.2rem;
-} */
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 4px;;
+} 
 
 .add-button {
   background-color: #19A7CE;
@@ -71,7 +76,7 @@ span.error {
 }
 
 .task-list-item:nth-child(1) {
-  margin-top: 60px;
+  margin-top: 100px;
 }
 
 .task-list-item {
@@ -84,12 +89,15 @@ span.error {
   width: 350px;
   min-height: 50px;
   padding: 4px 16px;
-  background-color: #19A7CE;
+  background-color: #F6F1F1;
   position: relative;
+  background: #F6F1F1;
+  box-shadow:  5px 5px 10px #ccc8c8,
+               -5px -5px 10px #ffffff;
 }
 
 .task-list-item.is-completed:nth-child(1) {
-  margin-top: 60px;
+  margin-top: 100px;
 }
 
 .task-list-item.is-completed {
@@ -97,12 +105,12 @@ span.error {
   display: flex;
   place-items: center;
   justify-content: space-around;
-  border: 1px solid #A3D2CA;
+  border: 2px solid #bde1db;
   border-radius: 8px;
   width: 350px;
   min-height: 50px;
   padding: 4px 16px;
-  background-color: #64CCC5;
+  background-color: #E3F4F4;
   opacity: 0.65;
 }
 
@@ -117,13 +125,18 @@ span.error {
   margin-right: 16px;
 }
 
-.task-list-item-description {
+.task-list-item-text {
   width: 100vh;
   height: 50%;
   text-align: left;
   font-weight:500;
   padding: 4px 16px;
-  color: #fff;
+  color: #000;
+}
+
+.task-list-item-text span.description {
+  color: gray;
+  font-size: 14px;
 }
 
 .delete-button {

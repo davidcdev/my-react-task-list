@@ -25,8 +25,9 @@ export function Task ({task, onCompleteClick, onDeleteClick }) {
                 />
             </aside>
 
-            <div className="task-list-item-description">
-                {task.description}
+            <div className="task-list-item-text">
+                {task.title}<br />
+                <span className="description">{task.description}</span>
             </div>
 
             <button

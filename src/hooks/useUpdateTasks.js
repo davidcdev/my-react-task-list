@@ -3,21 +3,24 @@ import { notifyCompleted, notifyDeleted, notifySaved } from "../logic/notificati
 
 export function useUpdateTasks() {
 
-    const [inputValue, setInputValue] = useState('');
-    const [ task, setTask ] = useState([]);
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [formValidation, setFormValidation] = useState({title: null});
+    const [ taskList, setTaskList ] = useState([]);
     const [complete, setComplete] = useState(false);
 
-    const saveTask = (inputValue) => {
+    const saveTask = (title, description) => {
         
-        inputValue = {
+        const task = {
             id: crypto.randomUUID(),
-            description: `${inputValue}`,
+            title: title,
+            description: description,
             isCompleted: false 
         }
     
-        let newTask = [...task];
-        newTask = [...newTask, inputValue];
-        setTask(newTask);
+        let newTask = [...taskList];
+        newTask = [...newTask, task];
+        setTaskList(newTask);
         localStorage.setItem("task", JSON.stringify(newTask));
         notifySaved();
     }
@@ -27,47 +30,53 @@ export function useUpdateTasks() {
         const storedTask = JSON.parse(localStorageData);
         console.log(storedTask);
         if (storedTask) {
-            setTask(storedTask);
+            setTaskList(storedTask);
         }
     }, []);
 
     const handleKeyDown = (e) => {
-        if (e.key === 'Enter' && inputValue !== '') {
-            saveTask(inputValue);
-            setInputValue('');
+        if (e.key === 'Enter' && title !== '' || (e.key === 'Enter' && title !== '' && description !== '')) {
+            saveTask(title, description);
+            setTitle('');
+            setDescription('');
         }
     }
 
     const handleAddClick = (e) => {
-        if (inputValue !== '') {
-            saveTask(inputValue);
-            setInputValue('')
+        if (title !== '' || title !== '' && description !== '') {
+            saveTask(title, description);
+            setTitle('');
+            setDescription('');
         }
     }
 
     const handleCompleteClick = (newCompleted, id) => {
         if (newCompleted.isCompleted === false) {
             setComplete(newCompleted.isCompleted = true);
-            let newTask = [...task];
+            let newTask = [...taskList];
             newTask = [...newTask.filter(e => e.id != id), newCompleted];
-            setTask(newTask);
+            setTaskList(newTask);
             localStorage.setItem("task", JSON.stringify(newTask));   
             notifyCompleted();
         }
     }
 
     const handleDeleteClick = (id) => {
-        let newTask = [...task];
+        let newTask = [...taskList];
         const list = newTask.filter(e => e.id != id);
-        setTask(list);
+        setTaskList(list);
         localStorage.setItem("task", JSON.stringify(list));
         notifyDeleted();
     }
 
     return {
-        task,
-        inputValue,
-        setInputValue,
+        taskList,
+        title,
+        setTitle,
+        description,
+        setDescription,
+        formValidation,
+        setFormValidation,
         complete, 
         handleAddClick, 
         handleKeyDown, 

@@ -1,13 +1,18 @@
 import './App.css'
 import { Header } from "./components/Header"
+import { TaskForm } from './components/TaskForm';
 import { TaskList } from './components/TaskList'
 import { useUpdateTasks } from './hooks/useUpdateTasks';
 
 function App() {
   const {
-    task,
-    inputValue,
-    setInputValue,
+    taskList,
+    title,
+    setTitle,
+    description,
+    setDescription,
+    formValidation,
+    setFormValidation,
     complete,
     handleAddClick, 
     handleKeyDown, 
@@ -22,19 +27,35 @@ function App() {
       handleKeyDown(e);
     }
 
-    function handleInputValueChange(e) {
-      setInputValue(e);
+    function handleTitleChange(e) {
+      const title = e
+
+      setFormValidation({
+        ...formValidation,
+        title: title.length < 3 ? "Title must be at least 3 characters" : "",
+      });
+
+      setTitle(e);
+    }
+
+    function handleDescriptionChange(e) {
+      setDescription(e);
     }
 
   return (
     <>
       <Header />
-      <TaskList 
-        inputValue={inputValue}
-        onInputValueChange={handleInputValueChange}
+      <TaskForm 
+        title={title}
+        onTitleChange={handleTitleChange}
+        description={description}
+        onDescriptionChange={handleDescriptionChange}
+        formValidation={formValidation}
         handleKeyDown={handleAddEnter}
         handleAddClick={handleAddTask}
-        task={task}
+      />
+      <TaskList 
+        taskList={taskList}
         complete={complete}
         handleCompleteClick={handleCompleteClick}
         handleDeleteClick={handleDeleteClick}
