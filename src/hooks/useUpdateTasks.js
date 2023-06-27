@@ -25,7 +25,7 @@ export function useUpdateTasks() {
     useEffect(() => {
         const localStorageData = localStorage.getItem("task");
         const storedTask = JSON.parse(localStorageData);
-        console.log(storedTask)
+        console.log(storedTask);
         if (storedTask) {
             setTask(storedTask);
         }
@@ -33,32 +33,32 @@ export function useUpdateTasks() {
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter' && inputValue !== '') {
-            saveTask(inputValue)
-            setInputValue('')
+            saveTask(inputValue);
+            setInputValue('');
         }
     }
 
     const handleAddClick = (e) => {
         if (inputValue !== '') {
-            saveTask(inputValue)
+            saveTask(inputValue);
             setInputValue('')
         }
     }
 
     const handleCompleteClick = (newCompleted, id) => {
         if (newCompleted.isCompleted === false) {
-        setComplete(newCompleted.isCompleted = true)
-        let newTask = [...task];
-        newTask = [...newTask.filter(e => e.id != id), newCompleted];
-        setTask(newTask);
-        localStorage.setItem("task", JSON.stringify(newTask));   
-        notifyCompleted();
+            setComplete(newCompleted.isCompleted = true);
+            let newTask = [...task];
+            newTask = [...newTask.filter(e => e.id != id), newCompleted];
+            setTask(newTask);
+            localStorage.setItem("task", JSON.stringify(newTask));   
+            notifyCompleted();
         }
     }
 
     const handleDeleteClick = (id) => {
         let newTask = [...task];
-        const list = newTask.filter(e => e.id != id)
+        const list = newTask.filter(e => e.id != id);
         setTask(list);
         localStorage.setItem("task", JSON.stringify(list));
         notifyDeleted();
