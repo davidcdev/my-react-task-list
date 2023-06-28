@@ -41,7 +41,7 @@ export function TaskForm({
                     onChange={(e) => { onDescriptionChange(e.target.value) }}
                     onKeyDown={ handleKeyDown }  
                     placeholder="Enter a description for your task"
-                    autoFocus/>
+                />
 
                 <button 
                     type="submit"
