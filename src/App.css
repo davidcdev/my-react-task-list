@@ -15,12 +15,12 @@ header {
   place-items: center;
   justify-content: space-around;
   width: 100%;
-  height: 30%;
+  height: 20%;
+  margin-bottom: 20px;
 }
 
 .title {
   font-size: 1.5rem;
-  margin: 40px auto 20px auto;
 }
 
 .form-container {
@@ -33,7 +33,8 @@ header {
   width: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  transition: all 0.4s ease-in-out;
 }
 
 .new-task{
@@ -42,6 +43,7 @@ header {
   width: 300px;
   height: 32px;
   padding: 4px 16px;
+  font-size: 1rem;
 }
 
 .title-and-error {
@@ -54,16 +56,15 @@ span.error {
   color: red;
   font-size: 14px;
   font-weight: 300;
-  margin-top: 4px;;
+  margin: 4px 0;
 } 
 
 .add-button {
   background-color: #19A7CE;
   border: none;
   border-radius: 8px;
-  width: 40px;
+  width: 80px;
   height: 40px;
-  margin-left: 12px;
   color: #fff;
   text-align: center;
   font-size: 24px;
@@ -105,7 +106,6 @@ span.error {
   display: flex;
   place-items: center;
   justify-content: space-around;
-  border: 2px solid #bde1db;
   border-radius: 8px;
   width: 350px;
   min-height: 50px;
@@ -130,6 +130,7 @@ span.error {
   height: 50%;
   text-align: left;
   font-weight:500;
+  font-size: 1rem;
   padding: 4px 16px;
   color: #000;
 }
@@ -150,4 +151,49 @@ span.error {
   background-color: transparent;
   cursor: pointer;
   opacity: 0.65;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .form-container {
+    width: 70%;
+    height: 150px;
+    display: flex;
+  }
+
+  .add-new-task {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .add-button {
+    width: 150px;
+  }
+
+  .add-button:disabled {
+    background-color: #AFD3E2;
+    width: 150px;
+  }
+
+  .task-list-item:nth-child(1) {
+    margin-top: 80px;
+  }
+
+  .task-list-item {
+    width: 300px;
+  }
+
+  .task-list-item.is-completed:nth-child(1) {
+    margin-top: 80px;
+  }
+  
+  .task-list-item.task-list-item.is-completed {
+    width: 300px;
+  }
 }
