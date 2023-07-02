@@ -9,6 +9,45 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+.menu {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.menu ul {
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu ul li {
+  list-style: none;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu ul li a:hover {
+  cursor: pointer;
+  background-color: gainsboro;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -16,11 +55,27 @@ header {
   justify-content: space-around;
   width: 100%;
   height: 20%;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .title {
   font-size: 1.5rem;
+}
+
+.app-name {
+  font-size: 4rem;
+  color: transparent;
+    background-image: linear-gradient(
+        90deg,
+        #f8db1d,
+        #f48e2e
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+header.welcome {
+  height: 60vh;
 }
 
 .form-container {
@@ -37,8 +92,8 @@ header {
   transition: all 0.4s ease-in-out;
 }
 
-.new-task{
-  border: 1px solid #146C94;
+.new-task {
+  border: 1px solid #f48e2e;
   border-radius: 8px;
   width: 300px;
   height: 32px;
@@ -60,7 +115,7 @@ span.error {
 } 
 
 .add-button {
-  background-color: #19A7CE;
+  background-color: #f48e2e;
   border: none;
   border-radius: 8px;
   width: 80px;
@@ -73,7 +128,7 @@ span.error {
 }
 
 .add-button:disabled {
-  background-color: #AFD3E2;
+  background-color: #ffe1bf;
 }
 
 .task-list-item:nth-child(1) {
@@ -92,9 +147,14 @@ span.error {
   padding: 4px 16px;
   background-color: #F6F1F1;
   position: relative;
-  background: #F6F1F1;
-  box-shadow:  5px 5px 10px #ccc8c8,
+  background: #ffffff;
+  box-shadow:  5px 5px 10px #d9d9d9,
                -5px -5px 10px #ffffff;
+  transition: all .4s ease-in-out;
+}
+
+.task-list-item:hover {
+  transform: translateX(-3px)translateY(-3px);
 }
 
 .task-list-item.is-completed:nth-child(1) {
@@ -110,8 +170,9 @@ span.error {
   width: 350px;
   min-height: 50px;
   padding: 4px 16px;
-  background-color: #E3F4F4;
+  background-color: #ffe4c5;
   opacity: 0.65;
+  text-decoration: line-through;
 }
 
 .task-list-item.is-completed:hover {
@@ -153,14 +214,85 @@ span.error {
   opacity: 0.65;
 }
 
+.about {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about p {
+  display: block;
+  width: 50%;
+  font-size: 18px;
+  text-align: justify;
+  padding: 0 4px;
+}
+
+.about ul {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.about ul li {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  place-items: center;
+  justify-content:flex-start;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 50px;
+  padding: 4px 16px;
+  background-color: #F6F1F1;
+  position: relative;
+  background: #ffffff;
+  box-shadow:  5px 5px 10px #d9d9d9,
+               -5px -5px 10px #ffffff;
+}
+
+.about ul li p {
+  width: 100%;
+  text-align: justify;
+}
+
+.about ul li p span {
+  color: gray;
+}
+
+p.about-tech {
+  text-align: center;
+  color: gray;
+}
+
 @media (max-width: 1200px) {
+  .menu {
+    justify-content: center;
+  }
+
+  .menu ul {
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 0;
+  }
+
   .title {
     font-size: 1.2rem;
+  }
+
+  .app-name {
+    font-size: 3rem;
   }
   
   .form-container {
     width: 70%;
-    height: 150px;
+    height: 180px;
     display: flex;
   }
 
@@ -177,7 +309,7 @@ span.error {
   }
 
   .add-button:disabled {
-    background-color: #AFD3E2;
+    background-color: #ffe1bf;
     width: 150px;
   }
 
@@ -195,5 +327,14 @@ span.error {
   
   .task-list-item.task-list-item.is-completed {
     width: 300px;
+  }
+
+  .about p {
+    font-size: 14px;
+    width: 70%;
+  }
+
+  .about ul {
+    width: 70%;
   }
 }

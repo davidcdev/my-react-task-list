@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react'
 import { notifyCompleted, notifyDeleted, notifySaved } from "../logic/notifications";
 
 export function useUpdateTasks() {
-
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [formValidation, setFormValidation] = useState({title: null});
-    const [ taskList, setTaskList ] = useState([]);
+    const [taskList, setTaskList] = useState([]);
     const [complete, setComplete] = useState(false);
 
     const saveTask = (title, description) => {

@@ -17,9 +17,3 @@ export const notifyCompleted = () => toast('Task completed!', {
     position: "top-center",
     icon: "🤩"
 });
-
-/* export const notifyEdited = () => toast('Task edited succesfully!', {
-    duration: 2000,
-    position: "bottom-center",
-    icon: "🫡"
-}); */
