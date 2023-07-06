@@ -34,7 +34,7 @@ export function useUpdateTasks() {
     }, []);
 
     const handleKeyDown = (e) => {
-        if (e.key === 'Enter' && title !== '' || (e.key === 'Enter' && title !== '' && description !== '')) {
+        if (e.key === 'Enter' && title.length > 2 || (e.key === 'Enter' && title.length > 2 && description !== '')) {
             saveTask(title, description);
             setTitle('');
             setDescription('');

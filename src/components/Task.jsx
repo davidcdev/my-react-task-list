@@ -1,4 +1,5 @@
-import { Delete } from "@mui/icons-material"
+import { Card, Checkbox, CardHeader, Heading, CardBody, Text, IconButton } from "@chakra-ui/react"
+import { DeleteIcon } from "@chakra-ui/icons"
 
 export function Task ({task, onCompleteClick, onDeleteClick }) {
     const handleCompleteClick = () => {
@@ -10,34 +11,53 @@ export function Task ({task, onCompleteClick, onDeleteClick }) {
     }
 
     return (
-        <article 
-            className={
-                task.isCompleted === true
-                ? 'task-list-item is-completed'
-                : 'task-list-item' }>
-            <aside>
-                <input 
-                    type="checkbox" 
-                    className="complete" 
-                    onClick={ handleCompleteClick }
-                    checked={task.isCompleted}
-                    onChange={e => handleCompleteClick(e.target.checked)}
-                />
-            </aside>
+        <Card
+            direction={{ sm: 'row'}}
+            variant='elevated'
+            boxShadow='md'
+            align='center'
+            w={{ base:'300px', lg:'350px'}}
+            minH='50px'
+            mt='20px'
+            mb='20px'
+            py='4px'
+            px='16px'
+            opacity={task.isCompleted ? '0.65' : '1'}
+        >
+            <Checkbox
+                colorScheme="orange"
+                onClick={ handleCompleteClick }
+                onChange={e => handleCompleteClick(e.target.checked)}
+                isChecked={task.isCompleted ? true : false}
+            />
+            
+            <CardHeader>
+                <Heading 
+                    size='16px'
+                    as={task.isCompleted ? 's' : 'n'}
+                >
+                    {task.title}
+                </Heading>
+            </CardHeader>
 
-            <div className="task-list-item-text">
-                {task.title}<br />
-                <span className="description">{task.description}</span>
-            </div>
+            <CardBody>
+                <Text 
+                    fontSize='14px' 
+                    color='gray'
+                    as={task.isCompleted ? 's' : 'n'}
+                >
+                    {task.description}
+                </Text>
+            </CardBody>
 
-            <button
-                className="delete-button"
+            <IconButton
+                fontSize='16px'
+                colorScheme="black"
                 onClick={ handleDeleteClick }
-            >
-                <span>
-                    <Delete fontSize="small"/>
-                </span>
-            </button>
-        </article>
+                variant='link'
+                aria-label="delete"
+                icon={<DeleteIcon />}
+            />   
+        </Card>
     )
 }

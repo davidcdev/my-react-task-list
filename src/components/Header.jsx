@@ -1,9 +1,9 @@
+import { Heading } from "@chakra-ui/react";
+
 export function Header () {
     return (
-        <header>
-            <div className="title">
-                <h1>Today's Tasks</h1>
-            </div>
-        </header>
+        <Heading as='h1' size='xl' mb='60px'>
+            Today's Tasks
+        </Heading>
     )
 }

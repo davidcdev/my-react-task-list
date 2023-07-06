@@ -2,6 +2,7 @@ import { Header } from "../components/Header";
 import { TaskForm } from "../components/TaskForm"
 import { TaskList } from "../components/TaskList"
 import { useUpdateTasks } from "../hooks/useUpdateTasks"
+import { Flex } from "@chakra-ui/react";
 
 export default function Tasks () {
     const {
@@ -42,7 +43,7 @@ export default function Tasks () {
         }
 
     return (
-        <>
+        <Flex flexDirection='column' justifyContent='center' alignItems='center' >
             <Header />
             <TaskForm 
                 title={title}
@@ -59,6 +60,6 @@ export default function Tasks () {
                 handleCompleteClick={handleCompleteClick}
                 handleDeleteClick={handleDeleteClick}
             />
-        </>
+        </Flex>
     )
 }

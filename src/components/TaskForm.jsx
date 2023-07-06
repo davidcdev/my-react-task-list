@@ -1,3 +1,17 @@
+import {
+    Text,
+    Flex,
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+    Input,
+    Button
+  } from '@chakra-ui/react'
+
+import { AddIcon } from '@chakra-ui/icons';
+
+
 export function TaskForm({
     title,
     onTitleChange, 
@@ -17,41 +31,52 @@ export function TaskForm({
       );
 
     return (
-        <section className="form-container">
-            <form className="add-new-task" onSubmit={handleSubmit}>
-                <div className="title-and-error">
-                    <input 
+        <Flex justifyContent='center' alignItems='center' w='600px'>
+            <form onSubmit={handleSubmit}>
+                <FormControl>
+                    <FormLabel>Title</FormLabel>
+                    <Input 
                         type="text"
                         className="new-task"
                         value={title}
                         onChange={(e) => { onTitleChange(e.target.value) }} 
                         onKeyDown={ handleKeyDown }
                         placeholder="Enter a title for your task"
-                        autoFocus/>
+                        autoFocus
+                        w='300px'
+                        mb='16px'/>
                         
-                    {formValidation.title && (
-                        <span className="error">{formValidation.title}</span>
-                    )}
-                </div>
+                        {formValidation.title && (
+                            <Text color='red' fontSize='sm' mt='-4' mb='8px'>{formValidation.title}</Text>
+                        )}
 
-                <input 
-                    type="text"
-                    className="new-task"
-                    value={description}
-                    onChange={(e) => { onDescriptionChange(e.target.value) }}
-                    onKeyDown={ handleKeyDown }  
-                    placeholder="Enter a description for your task"
-                />
+                </FormControl>
+                <FormControl>
+                    <FormLabel optionalIndicator >Description</FormLabel>
+                    <Input 
+                        type="text"
+                        className="new-task"
+                        value={description}
+                        onChange={(e) => { onDescriptionChange(e.target.value) }}
+                        onKeyDown={ handleKeyDown }  
+                        placeholder="Enter a description for your task"
+                        w='300px'
+                        mb='16px' />
 
-                <button 
+                </FormControl>
+                <Button 
+                    mt='12px'
+                    mb='32px'
                     type="submit"
-                    className="add-button" 
+                    bg="#f48e2e"
+                    color='white'
+                    leftIcon={<AddIcon />}
                     onClick={ handleAddClick }
-                    disabled={!isFormValid}
+                    isDisabled={!isFormValid}
                 >
-                    +
-                </button>
+                    Add Task
+                </Button>
             </form>
-        </section>
+        </Flex>
     )
 }
