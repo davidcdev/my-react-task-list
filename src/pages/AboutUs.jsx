@@ -2,12 +2,12 @@ import { Flex, Heading, VStack, Text, Card, CardBody } from "@chakra-ui/react"
 
 export default function AboutUs () {
     return (
-        <Flex flexDirection='column' justifyContent='center' alignItems='center' >
+        <Flex flexDirection='column' justifyContent='center' alignItems='center' mt={{base:'80px'}}>
             <Heading as='h1' size='xl'>
                 About Us
             </Heading>
 
-            <VStack mt='40px' maxW='75ch' spacing='6' mx='8px'w={{ base:'300px', lg:'75ch'}}>
+            <VStack mt='40px' maxW='75ch' spacing='6' mx='8px'w={{ base:'300px', md:'60ch', lg:'75ch'}}>
                 <Text mt='12px' px='6' fontSize={{ base: '16px', md:'18px' }}>
                     <Text as='b'>Productive Day</Text> is a ToDo List App created to provide an easy way to organize your tasks and be more productive through the day 🤩.
                 </Text>
@@ -38,7 +38,7 @@ export default function AboutUs () {
                         </CardBody>
                     </Card>
 
-                <Text color='gray' mb='20px' fontSize={{ base: '16px', md: '18px' }}>This app was built with ReactJS and Chakra-UI.</Text>
+                <Text color='gray' mb={{base:'100px', md:'20px'}} fontSize={{ base: '16px', md: '18px' }}>This app was built with ReactJS and Chakra-UI.</Text>
             </VStack>
         </Flex> 
     )

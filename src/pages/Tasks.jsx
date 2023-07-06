@@ -43,7 +43,7 @@ export default function Tasks () {
         }
 
     return (
-        <Flex flexDirection='column' justifyContent='center' alignItems='center' >
+        <Flex flexDirection='column' justifyContent='center' alignItems='center' mt='80px' mx='0'>
             <Header />
             <TaskForm 
                 title={title}

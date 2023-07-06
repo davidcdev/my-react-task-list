@@ -3,8 +3,6 @@ import {
     Flex,
     FormControl,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
     Input,
     Button
   } from '@chakra-ui/react'
@@ -31,7 +29,7 @@ export function TaskForm({
       );
 
     return (
-        <Flex justifyContent='center' alignItems='center' w='600px'>
+        <Flex justifyContent='center' alignItems='center' w={{base:'375px', md:'600px'}}>
             <form onSubmit={handleSubmit}>
                 <FormControl>
                     <FormLabel>Title</FormLabel>

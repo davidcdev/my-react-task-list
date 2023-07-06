@@ -23,33 +23,31 @@ export function Task ({task, onCompleteClick, onDeleteClick }) {
             py='4px'
             px='16px'
             opacity={task.isCompleted ? '0.65' : '1'}
-        >
+            >
             <Checkbox
                 colorScheme="orange"
                 onClick={ handleCompleteClick }
                 onChange={e => handleCompleteClick(e.target.checked)}
                 isChecked={task.isCompleted ? true : false}
-            />
+                />
             
             <CardHeader>
                 <Heading 
                     size='16px'
                     as={task.isCompleted ? 's' : 'n'}
-                >
+                    >
                     {task.title}
                 </Heading>
             </CardHeader>
-
             <CardBody>
                 <Text 
                     fontSize='14px' 
                     color='gray'
                     as={task.isCompleted ? 's' : 'n'}
-                >
+                    >
                     {task.description}
                 </Text>
             </CardBody>
-
             <IconButton
                 fontSize='16px'
                 colorScheme="black"
@@ -57,7 +55,7 @@ export function Task ({task, onCompleteClick, onDeleteClick }) {
                 variant='link'
                 aria-label="delete"
                 icon={<DeleteIcon />}
-            />   
+                />   
         </Card>
     )
 }

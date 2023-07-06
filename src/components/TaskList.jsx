@@ -1,5 +1,6 @@
 import { Task } from "./Task"
 import { Toaster } from "react-hot-toast";
+import { Box, Flex } from "@chakra-ui/react";
 
 
 export function TaskList ({ 
@@ -9,8 +10,8 @@ export function TaskList ({
     handleDeleteClick }) {
 
     return (
-        <section>
-            <div className="task-list">
+        <Flex flexDir='column' justifyContent='center' align='center'>
+            <Box as='section' mb='100px'>
                 {taskList.map((task,id) => (
                     <Task 
                         key={id}
@@ -20,8 +21,8 @@ export function TaskList ({
                         onDeleteClick={handleDeleteClick}
                     />
                 ))}
-            </div>
+            </Box>
             <Toaster />
-        </section>
+        </Flex>
     )
 }
