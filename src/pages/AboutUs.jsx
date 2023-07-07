@@ -12,7 +12,12 @@ export default function AboutUs () {
                     <Text as='b'>Productive Day</Text> is a ToDo List App created to provide an easy way to organize your tasks and be more productive through the day 🤩.
                 </Text>
 
-                    <Card mt='40px' boxShadow='md'>
+                    <Card mt='40px' w='100%' boxShadow='md'>
+                        <CardBody fontSize={{ base: '16px', md:'18px' }}>
+                            You can switch to dark mode by clicking the icon at the top-left that has a 🌙.
+                        </CardBody>
+                    </Card>
+                    <Card boxShadow='md'>
                         <CardBody fontSize={{ base: '16px', md:'18px' }}>
                             You can add tasks with a title and a description (optional) by clicking the Add button that has a ➕ sign or by pressing the "Intro" key in your keyboard.
                         </CardBody>

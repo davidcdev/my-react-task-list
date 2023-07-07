@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Navbar } from './components/Navbar';
 import { ChakraProvider, Show, Hide } from '@chakra-ui/react';
+import theme from './logic/theme';
 
 function App() {
   const Home = lazy(() => import("./pages/Home"));
@@ -10,7 +11,7 @@ function App() {
   /* const NotFound = lazy(() => import("./pages/NotFound")); */
   return (
     <>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <BrowserRouter>
           <Hide breakpoint='(max-width: 820px)'>
             <Navbar />
