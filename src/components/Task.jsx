@@ -1,4 +1,4 @@
-import { Card, Checkbox, CardHeader, Heading, CardBody, Text, IconButton } from "@chakra-ui/react"
+import { Checkbox, Heading, Text, IconButton, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel } from "@chakra-ui/react"
 import { DeleteIcon } from "@chakra-ui/icons"
 
 export function Task ({task, onCompleteClick, onDeleteClick }) {
@@ -11,51 +11,71 @@ export function Task ({task, onCompleteClick, onDeleteClick }) {
     }
 
     return (
-        <Card
+        <Accordion 
+            allowToggle 
+            borderRadius='8px'
             direction={{ sm: 'row'}}
             variant='elevated'
             boxShadow='md'
             align='center'
+            justifyContent='center'
             w={{ base:'300px', lg:'350px'}}
             minH='50px'
             mt='20px'
             mb='20px'
-            py='4px'
-            px='16px'
             opacity={task.isCompleted ? '0.65' : '1'}
-            >
-            <Checkbox
-                colorScheme="orange"
-                onClick={ handleCompleteClick }
-                onChange={e => handleCompleteClick(e.target.checked)}
-                isChecked={task.isCompleted ? true : false}
-                />
-            
-            <CardHeader>
-                <Heading 
-                    size='16px'
-                    as={task.isCompleted ? 's' : 'n'}
+        >
+            <AccordionItem border='none'> 
+                <Heading p='2'>
+                    <AccordionButton 
+                        display='flex' 
+                        justifyContent='space-between' 
+                        minH='50px' 
+                        borderRadius='8px'
                     >
-                    {task.title}
+                        <Checkbox
+                            pl='1'
+                            pr='4'
+                            colorScheme="orange"
+                            onClick={ handleCompleteClick }
+                            onChange={e => handleCompleteClick(e.target.checked)}
+                            isChecked={task.isCompleted ? true : false}
+                        />
+                        <Heading 
+                            size='16px'
+                            as={task.isCompleted ? 's' : ''}
+                        >
+                            {task.title}
+                        </Heading>
+                        <AccordionIcon 
+                            ml='28'
+                        />
+                        <IconButton
+                            as='span'
+                            pl='4'
+                            pr='1'
+                            fontSize='16px'
+                            colorScheme="black"
+                            onClick={ handleDeleteClick }
+                            variant='link'
+                            aria-label="delete"
+                            icon={<DeleteIcon />}
+                        />   
+                    </AccordionButton>
                 </Heading>
-            </CardHeader>
-            <CardBody>
-                <Text 
-                    fontSize='14px' 
-                    color='gray'
-                    as={task.isCompleted ? 's' : 'n'}
+                <AccordionPanel 
+                    textAlign='left'
+                >
+                    <Text
+                        fontSize='14px' 
+                        color='gray'
+                        pl='3'
+                        as={task.isCompleted ? 's' : ''}
                     >
-                    {task.description}
-                </Text>
-            </CardBody>
-            <IconButton
-                fontSize='16px'
-                colorScheme="black"
-                onClick={ handleDeleteClick }
-                variant='link'
-                aria-label="delete"
-                icon={<DeleteIcon />}
-                />   
-        </Card>
+                        {task.description ? task.description : 'It seems you didn\'t added a description... 👨🏻‍💻'}
+                    </Text>
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>
     )
 }
