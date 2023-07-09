@@ -14,6 +14,11 @@ export default function AboutUs () {
 
                     <Card mt='40px' w='100%' boxShadow='md'>
                         <CardBody fontSize={{ base: '16px', md:'18px' }}>
+                            In the Home page you will see the report of how many pending and completed tasks you do have for the day 🔍
+                        </CardBody>
+                    </Card>
+                    <Card w='100%' boxShadow='md'>
+                        <CardBody fontSize={{ base: '16px', md:'18px' }}>
                             You can switch to dark mode by clicking the icon at the top-left that has a 🌙
                         </CardBody>
                     </Card>

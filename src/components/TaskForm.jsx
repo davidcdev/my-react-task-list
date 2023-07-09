@@ -64,7 +64,7 @@ export function TaskForm({
                 </FormControl>
                 <Button 
                     mt='12px'
-                    mb='32px'
+                    mb='60px'
                     type="submit"
                     bg="#f48e2e"
                     color='white'
