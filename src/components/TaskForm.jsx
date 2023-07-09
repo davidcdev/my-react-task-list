@@ -5,7 +5,7 @@ import {
     FormLabel,
     Input,
     Button
-  } from '@chakra-ui/react'
+} from '@chakra-ui/react'
 
 import { AddIcon } from '@chakra-ui/icons';
 
@@ -32,7 +32,7 @@ export function TaskForm({
         <Flex justifyContent='center' alignItems='center' w={{base:'375px', md:'600px'}}>
             <form onSubmit={handleSubmit}>
                 <FormControl>
-                    <FormLabel>Title</FormLabel>
+                    <FormLabel>Title <span style={{color:'red'}}>*</span></FormLabel>
                     <Input 
                         type="text"
                         className="new-task"

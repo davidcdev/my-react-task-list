@@ -31,7 +31,11 @@ export default function Tasks () {
     
           setFormValidation({
             ...formValidation,
-            title: title.length < 3 ? "Title must be at least 3 characters" : "",
+            title: !title 
+            ? "Title is required" 
+            : title.length < 3 
+            ? "Title must be at least 3 characters" 
+            : "",
           });
     
           setTitle(e);
@@ -44,7 +48,7 @@ export default function Tasks () {
     return (
         <Flex flexDirection='column' justifyContent='center' alignItems='center' mt='80px' mx='0'>
             <Heading as='h1' size='xl' mb='60px'>
-              Today's Tasks
+              Today&#39;s Tasks
             </Heading>
             <TaskForm 
                 title={title}
