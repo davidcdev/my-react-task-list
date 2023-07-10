@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import { Navbar } from './components/Navbar';
 import { ChakraProvider, Show, Hide } from '@chakra-ui/react';
 import theme from './logic/theme';
+import { Loading } from "./components/Loading";
 
 function App() {
   const Home = lazy(() => import("./pages/Home"));
@@ -16,7 +17,7 @@ function App() {
           <Hide breakpoint='(max-width: 820px)'>
             <Navbar />
           </Hide>
-          <Suspense >
+          <Suspense fallback={<Loading />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
