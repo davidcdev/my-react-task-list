@@ -53,6 +53,10 @@ export default function AboutUs () {
                         </CardBody>
                     </Card>
 
+                <Text mt='12px' px='6' fontSize={{ base: '16px', md:'18px' }}>
+                    <Text as='b'>Productive Day</Text> is being designed and developed by David Castellanos.
+                </Text>
+                
                 <Text color='gray' mb={{base:'100px', md:'20px'}} fontSize={{ base: '16px', md: '18px' }}>This app was built with ReactJS and Chakra-UI</Text>
             </VStack>
         </Flex> 
